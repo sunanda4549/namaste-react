@@ -47,4 +47,11 @@
 .res-logo {
   width: 100%;
 }
+
+.footer {
+  background-color: #5f9ea0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 /*# sourceMappingURL=namaste-react.9e4c6fd2.css.map */

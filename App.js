@@ -87,11 +87,20 @@ const Body = () => {
     </div>
   );
 };
+
+const Footer = () => {
+  return (
+    <div className="footer">
+      <h1>@copyRights Namste React</h1>
+    </div>
+  );
+};
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
       {Body()}
+      <Footer></Footer>
     </div>
   );
 };
