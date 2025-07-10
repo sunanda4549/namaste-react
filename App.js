@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//create Element -this is basically an object when we render to DOM then it becomes html html element.
-// who is parsing this code? PARCEL is a manager,this transpiling is done by BABEL
-const heading = React.createElement("h1", { id: "heading" }, "Namaste React");
+//React Element
+// const heading = <h1 className="head">Namste React using Jsx</h1>;
 
-//jsx syntax
-const jsxheading = <h1>Namaste React using Jsx</h1>;
+const Title = () => <h1 className="head">Namaste React title</h1>;
+
+//React Functional component,component composition
+const HeadingComponent = () => (
+  <div id="container">
+    <Title />
+    <h1 className="heading">Namaste React Functional component</h1>
+  </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(<HeadingComponent />); //this heading component is rendered inside the root
