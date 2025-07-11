@@ -44,45 +44,59 @@ const Header = () => {
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  console.log(resData);
   return (
     <div className="res-card" style={styleCard}>
-      <img
+      {/* <img
         className="res-logo"
         src="https://tse3.mm.bing.net/th/id/OIP.2Q07eWjEiswISgW93oTFtgAAAA?pid=Api&P=0&h=180"
+      /> */}
+      <img
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/13b3b7a3bd057dc7c3148f20fd86fe54"
+        alt="Swiggy Food"
       />
-      <h3>Meghana Foods</h3>
-      <h4>Biriyani,North Indian,Asian</h4>
-      <h4>4.3 stars</h4>
-      <h4>38 Minutes</h4>
+
+      <h3>{resData.data.name}</h3>
+      <h4>{resData.data.cuisines.join(", ")}</h4>
+      <h4>{resData.data.avgRating} Stars</h4>
+      <h4>{resData.data.costForTwo / 100} FoR Two</h4>
+      <h4>{resData.data.deliveryTime} minutes</h4>
     </div>
   );
 };
+const resObj = [
+  {
+    type: "restaurant",
+    data: {
+      name: "KFC",
+      cuisines: ["Burgers", "Biriyani", "American", "Snacks", "Fast Food"],
+      avgRating: "4.3",
+      costForTwo: "40000",
+      deliveryTime: "35",
+      cloudinaryImageId: "bdcd233971b7c8bf77e1fa4471288eb",
+    },
+  },
+  {
+    type: "restaurant",
+    data: {
+      name: "Burger",
+      cuisines: ["Burgers", "Biriyani", "American", "Snacks", "Fast Food"],
+      avgRating: "4.3",
+      costForTwo: "40000",
+      deliveryTime: "35",
+      cloudinaryImageId: "bdcd233971b7c8bf77e1fa4471288eb",
+    },
+  },
+];
+
 const Body = () => {
   return (
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        <RestaurantCard resData={resObj[1]} />
       </div>
     </div>
   );
@@ -91,7 +105,7 @@ const Body = () => {
 const Footer = () => {
   return (
     <div className="footer">
-      <h1>@copyRights Namste React</h1>
+      <h1 className="footer-text">@copyRights Namste React</h1>
     </div>
   );
 };
